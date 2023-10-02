@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@privy-io/react-auth": "^1.41.0",
-    "@shield3/privy": "workspace:^",
+    "@0xshield3/privy": "workspace:^",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"

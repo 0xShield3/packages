@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { PrivyProvider } from "@privy-io/react-auth";
 import { useRouter } from "next/router";
-import initShield3PrivyConfig from "@shield3/privy";
+import initShield3PrivyConfig from "@0xshield3/privy";
 
 const privyConfig = initShield3PrivyConfig(
   process.env.NEXT_PUBLIC_SHIELD3_API_KEY || "",

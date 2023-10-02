@@ -10,12 +10,12 @@ importers:
 
   apps/shield3-privy-example:
     dependencies:
+      '@0xshield3/privy':
+        specifier: workspace:^
+        version: link:../../packages/privy
       '@privy-io/react-auth':
         specifier: ^1.41.0
         version: 1.41.0(@babel/core@7.23.0)(@types/react@18.2.24)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      '@shield3/privy':
-        specifier: workspace:^
-        version: link:../../packages/privy
       next:
         specifier: latest
         version: 13.5.3(@babel/core@7.23.0)(react-dom@18.2.0)(react@18.2.0)
