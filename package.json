@@ -1,0 +1,13 @@
+{
+  "name": "@shield",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "pnpm privy-build",
+    "privy-build": "pnpm --filter @shield3/privy build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
