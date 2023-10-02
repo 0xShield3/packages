@@ -13,7 +13,7 @@ export const initShield3PrivyConfig = (
     rpcConfig: {
       ...privyClientConfig?.rpcConfig,
       rpcUrls: {
-        0: _generatePrivyRpcUrl(SHIELD3_API_KEY, '0x01'), // Mainnet
+        1: _generatePrivyRpcUrl(SHIELD3_API_KEY, '0x01'), // Mainnet
         5: _generatePrivyRpcUrl(SHIELD3_API_KEY, '0x5'), // Goerli
         137: _generatePrivyRpcUrl(SHIELD3_API_KEY, '0x89'), // Polygon
         80001: _generatePrivyRpcUrl(SHIELD3_API_KEY, '0x13881'), // Mumbai
