@@ -16,7 +16,7 @@ pnpm add @shield3/privy
 
 To use `@shield3/privy`, you need to import and call the `initShield3PrivyConfig` function with your Shield3 API key and optional Privy configuration.
 
-```javascript
+```tsx
 import initShield3PrivyConfig from '@shield3/privy';
 
 const privyProviderConfig = {
@@ -25,20 +25,19 @@ const privyProviderConfig = {
 
 const shield3PrivyConfig = initShield3PrivyConfig(<YOUR_SHIELD3_API_KEY>, privyProviderConfig);
 
-// Now you can use `shield3PrivyConfig` to configure your Privy provider.
+return (
     <PrivyProvider config={shield3PrivyConfig}>
         <Component {...pageProps} />
     </PrivyProvider>
-
+    );
 ```
 
 ### Parameters
 
 - `SHIELD3_API_KEY` (string): Your Shield3 API key, which is required for authentication.
 
-- `privyClientConfig` (PrivyClientConfig): An optional configuration object for Privy. This object allows you to customize the behavior of the Privy client. Refer to the [Privy documentation](https://docs.privy.io/reference/react-auth/modules#privyclientconfig) for available configuration options.
-
+- `privyClientConfig` (PrivyClientConfig type): An optional configuration object for Privy. This object allows you to customize the behavior of the Privy client. Refer to the [Privy documentation](https://docs.privy.io/reference/react-auth/modules#privyclientconfig) for available configuration options.
 
 ## License
 
-This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This package is licensed under the MIT License. See the [LICENSE](../../LICENSE) file for details.

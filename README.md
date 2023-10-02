@@ -4,10 +4,9 @@ This repository contains the source code for the Shield3 libraries.
 
 ## Our libraries
 
-|                                  |                                                                                                          |
+| Package name                     | Description                                                                                              |
 |----------------------------------|----------------------------------------------------------------------------------------------------------|
 | [@shield3/privy](packages/privy) | Configuration package for the Privy `@privy-io/react-auth` library that enables Shield3 RPC integration. |
-|                                  |                                                                                                          |
 
 ## License
 
