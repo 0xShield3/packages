@@ -1,23 +1,23 @@
-# @shield3/privy
+# @0xshield3/privy
 
-`@shield3/privy` is a configuration package for the Privy `@privy-io/react-auth` library that enables Shield3 RPC integration. It simplifies the setup process for connecting to the Shield3 API by providing a convenient configuration function.
+`@0xshield3/privy` is a configuration package for the Privy `@privy-io/react-auth` library that enables Shield3 RPC integration. It simplifies the setup process for connecting to the Shield3 API by providing a convenient configuration function.
 
 ## Installation
 
-To install `@shield3/privy`, use your preferred package manager:
+To install `@0xshield3/privy`, use your preferred package manager:
 
 ```shell
-npm install @shield3/privy
-yarn add @shield3/privy
-pnpm add @shield3/privy
+npm install @0xshield3/privy
+yarn add @0xshield3/privy
+pnpm add @0xshield3/privy
 ```
 
 ## Usage
 
-To use `@shield3/privy`, you need to import and call the `initShield3PrivyConfig` function with your Shield3 API key and optional Privy configuration.
+To use `@0xshield3/privy`, you need to import and call the `initShield3PrivyConfig` function with your Shield3 API key and optional Privy configuration.
 
 ```tsx
-import initShield3PrivyConfig from '@shield3/privy';
+import initShield3PrivyConfig from '@0xshield3/privy';
 
 const privyProviderConfig = {
     // Your Privy configuration options (optional)

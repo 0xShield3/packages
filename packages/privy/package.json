@@ -1,7 +1,7 @@
 {
-  "name": "privy",
+  "name": "@0xshield3/privy",
   "description": "Shield3 RPC configuration for Privy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "license": "MIT",
   "main": "./dist/index.cjs.js",
