@@ -1,0 +1,34 @@
+{
+  "name": "@shield3/privy",
+  "description": "Shield3 RPC configuration for Privy",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@privy-io/react-auth": "^1.41.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.6.0"
+  },
+  "peerDependencies": {
+    "@privy-io/react-auth": "^1.41.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
