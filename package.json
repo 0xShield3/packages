@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "pnpm privy-build",
-    "privy-build": "pnpm --filter @shield3/privy build"
+    "privy-build": "pnpm --filter privy build"
   },
   "keywords": [],
   "author": "",
