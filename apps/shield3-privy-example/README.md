@@ -2,9 +2,23 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+```bash
+# Install dependencies. Be sure your cwd is the same dir as this README
+pnpm install
+
+# Set up environment variables
+touch .env
+
+# Add the following into the .env file:
+NEXT_PUBLIC_SHIELD3_API_KEY="your-shield3-api-key"
+NEXT_PUBLIC_PRIVY_APP_ID="your-privy-app-ID"
+
+```
+
+Next, run the development server:
 
 ```bash
+
 npm run dev
 # or
 yarn dev
