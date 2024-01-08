@@ -24,8 +24,8 @@ export const initShield3PrivyConfig = (
   };
 };
 
-const _generatePrivyRpcUrl = (apiKey: string, type: string) => {
-  const url = new URL(SHIELD3_RPC_URL+`${type}/rpc`);
+const _generatePrivyRpcUrl = (apiKey: string, chainId: string) => {
+  const url = new URL(`${SHIELD3_RPC_URL}/${chainId}/rpc`);
   url.searchParams.append("apiKey", apiKey);
   return url.toString();
 };
