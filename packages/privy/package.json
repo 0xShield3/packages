@@ -33,7 +33,7 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@privy-io/react-auth": "^1.41.0",
+    "@privy-io/react-auth": "1.41.0",
     "eslint": "^8.45.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
