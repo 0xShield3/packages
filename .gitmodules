@@ -1,0 +1,3 @@
+[submodule "apps/Tx_example"]
+	path = apps/Tx_example
+	url = https://github.com/davidthegardens/shield3-privy-example.git
