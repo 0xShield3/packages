@@ -1,41 +1,77 @@
+import { useState } from 'react';
 import { usePrivy } from '@privy-io/react-auth';
+import Head from 'next/head';
+import { bigIntToHex } from '@ethereumjs/util'; // Import toHex from @ethereumjs/util
+
+
 
 export default function SendTransactionButton() {
   const { user, sendTransaction } = usePrivy();
 
-  // Replace this with the UnsignedTransactionRequest you'd like your user to send
-  const unsignedTx = {
+  const unsignedTxDefaults = {
     to: '0x01e2919679362DFbC9EE1644BA9C6DA6D624DEad',
     chainId: 5,
-    value: '0xF43FC2C04EE0000',
+    value: bigIntToHex(BigInt('1100000000000000000')), // Convert default amount to hex using BN for 1.1 ETH in wei
   };
 
-  // Replace this with the text you'd like on your transaction modal
+  const [toAddress, setToAddress] = useState(unsignedTxDefaults.to);
+  const [amount, setAmount] = useState('1.1'); // Keep amount in decimal as a string for user input
+
   const uiConfig = {
     header: 'Send ETH (goerli)',
     description: 'Will Shield3 block your transaction?',
     buttonText: 'Submit'
   };
 
-  // Users must have an embedded wallet at `user.wallet` to send a transaction.
   return (
     <>
-    <head>
-      <title>Privy x Shield3 Demo</title>
-    </head>
+      <Head>
+        <title>Privy x Shield3 Demo</title>
+      </Head>
 
-    <main className="flex flex-col min-h-screen px-4 sm:px-20 py-6 sm:py-10 bg-privy-light-blue">
-    <>
-    <div className="flex flex-row justify-between">
-    <h1 className="text-2xl font-semibold">Privy x Shield3 Demo</h1>
-    <button className="text-sm bg-violet-600 hover:bg-violet-700 disabled:bg-violet-400 py-2 px-4 rounded-md text-white" disabled={!user?.wallet} onClick={async () => {await sendTransaction(unsignedTx, uiConfig);
-        // `txReceipt` is an object of type `TransactionReceipt`. From this object, you can
-        // access your transaction's `transactionHash`, `blockNumber`, `gasUsed`, and
-        // more.
-    }}>
-        Send 1.1 ETH
-    </button>
-    </div></>
-    </main>
+      <main className="flex flex-col items-center min-h-screen px-4 sm:px-20 py-6 sm:py-10 bg-privy-light-blue">
+        <h1 className="text-2xl font-semibold">Privy x Shield3 Demo</h1>
+        
+        <label className="mt-2">
+          To Address:
+          <input
+            className="ml-2 p-2 border rounded"
+            value={toAddress}
+            onChange={(e) => setToAddress(e.target.value)}
+            placeholder="To Address"
+          />
+        </label>
+
+        <label className="mt-2">
+          Amount (ETH):
+          <input
+            className="ml-2 p-2 border rounded"
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Amount in ETH"
+          />
+        </label>
+
+        <button
+          className="mt-2 text-sm bg-violet-600 hover:bg-violet-700 disabled:bg-violet-400 py-2 px-4 rounded-md text-white"
+          disabled={!user?.wallet}
+          onClick={async () => {
+            const unsignedTx = { 
+              ...unsignedTxDefaults, 
+              to: toAddress, 
+              value: bigIntToHex(BigInt(amount) * BigInt(10**18)) // Convert amount to wei in hex using BN
+            };
+            await sendTransaction(unsignedTx, uiConfig);
+          }}
+        >
+          Send ETH
+        </button>
+        <label className="mt-2">
+          Your address: 
+        <div>{user?.wallet?.address || 'No wallet detected'}</div>
+        </label>
+      </main>
     </>
-)}
+  );
+}

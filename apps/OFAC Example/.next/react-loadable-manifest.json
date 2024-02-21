@@ -1,14 +1,14 @@
 {
   "../node_modules/@walletconnect/ethereum-provider/dist/index.es.js -> @walletconnect/modal": {
-    "id": 9343,
+    "id": "../node_modules/@walletconnect/ethereum-provider/dist/index.es.js -> @walletconnect/modal",
     "files": [
-      "static/chunks/343.dddd4cfae9b0ce42.js"
+      "static/chunks/node_modules_walletconnect_modal_dist_index_js.js"
     ]
   },
   "../node_modules/@walletconnect/modal/dist/index.js -> @walletconnect/modal-ui": {
-    "id": 1391,
+    "id": "../node_modules/@walletconnect/modal/dist/index.js -> @walletconnect/modal-ui",
     "files": [
-      "static/chunks/391.b5d44308ad3ccf3b.js"
+      "static/chunks/node_modules_walletconnect_modal-ui_dist_index_js.js"
     ]
   }
 }
