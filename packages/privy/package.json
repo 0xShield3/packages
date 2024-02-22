@@ -1,7 +1,7 @@
 {
   "name": "@0xshield3/privy",
   "description": "Shield3 RPC configuration for Privy",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": false,
   "license": "MIT",
   "main": "./dist/index.cjs.js",
@@ -33,14 +33,14 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "@privy-io/react-auth": "1.41.0",
+    "@privy-io/react-auth": "^1.56.2",
     "eslint": "^8.45.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0"
   },
   "peerDependencies": {
-    "@privy-io/react-auth": "^1.41.0",
+    "@privy-io/react-auth": "^1.56.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

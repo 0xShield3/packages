@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePrivy } from '@privy-io/react-auth';
 import Head from 'next/head';
 import { bigIntToHex } from '@ethereumjs/util'; // Import toHex from @ethereumjs/util
+import { useRouter } from "next/router";
 
 
 
 export default function SendTransactionButton() {
-  const { user, sendTransaction } = usePrivy();
+  const { user, sendTransaction, ready, authenticated } = usePrivy();
+  const router = useRouter();
+  
+  useEffect(() => {
+    if (!ready || !authenticated) router.push("/");
+  }, [ready, authenticated]);
 
   const unsignedTxDefaults = {
     to: '0x01e2919679362DFbC9EE1644BA9C6DA6D624DEad',
@@ -19,7 +25,7 @@ export default function SendTransactionButton() {
 
   const uiConfig = {
     header: 'Send ETH (goerli)',
-    description: 'Will Shield3 block your transaction?',
+    description: 'Send a protected transaction',
     buttonText: 'Submit'
   };
 
@@ -60,7 +66,7 @@ export default function SendTransactionButton() {
             const unsignedTx = { 
               ...unsignedTxDefaults, 
               to: toAddress, 
-              value: bigIntToHex(BigInt(amount) * BigInt(10**18)) // Convert amount to wei in hex using BN
+              value: bigIntToHex(BigInt(Math.floor(parseFloat(amount) * 1e6)) * BigInt(10**12)) // Convert amount to wei in hex
             };
             await sendTransaction(unsignedTx, uiConfig);
           }}
