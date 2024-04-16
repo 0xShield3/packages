@@ -17,11 +17,11 @@ export default function SendTransactionButton() {
   const unsignedTxDefaults = {
     to: '0x01e2919679362DFbC9EE1644BA9C6DA6D624DEad',
     chainId: 5,
-    value: bigIntToHex(BigInt('1100000000000000000')), // Convert default amount to hex using BN for 1.1 ETH in wei
+    value: bigIntToHex(BigInt('250000000000000000')), // Convert default amount to hex using BN for 1.1 ETH in wei
   };
 
   const [toAddress, setToAddress] = useState(unsignedTxDefaults.to);
-  const [amount, setAmount] = useState('1.1'); // Keep amount in decimal as a string for user input
+  const [amount, setAmount] = useState('0.25'); // Keep amount in decimal as a string for user input
 
   const uiConfig = {
     header: 'Send ETH (goerli)',

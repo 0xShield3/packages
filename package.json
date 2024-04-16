@@ -1,10 +1,9 @@
 {
-  "name": "@0xshield3",
+  "name": "0xshield3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "pnpm privy-build",
     "privy-build": "pnpm --filter privy build"
   },
   "keywords": [],
