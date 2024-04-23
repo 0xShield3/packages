@@ -1,23 +1,23 @@
-import { Transaction, JsonRpcProvider } from 'ethers'
-import { Address } from '../types'
+import type { Transaction, JsonRpcProvider } from 'ethers'
+import type { Address } from '../types'
 
 declare enum PolicyDecision {
     ALLOW = 'Allow',
     DENY = 'Deny',
 }
-interface IPolicyStatementResult {
+export interface IPolicyStatementResult {
     policy_id: string
     invoked: boolean
     annotations: {
         [key: string]: string
     }
 }
-interface IPolicyEnginePolicyResponse {
+export interface IPolicyEnginePolicyResponse {
     reasons: IPolicyStatementResult[]
     decision: PolicyDecision
     errors: string[]
 }
-enum RoutingDecision {
+export enum RoutingDecision {
     BLOCK = 'Block',
     MFA = 'MFA',
     NOTIFY = 'Notify',
@@ -25,7 +25,7 @@ enum RoutingDecision {
     ERROR = 'Error',
 }
 
-type PolicyResult = {
+export type PolicyResult = {
     policyId: string
     name: string
     result: IPolicyEnginePolicyResponse
