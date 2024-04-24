@@ -1,7 +1,9 @@
-import { TransactionLike, Transaction, JsonRpcProvider } from 'ethers'
-import React, { createContext, useContext } from 'react';
-import { Address } from '../types';
-import { SimulateResponse, simulate } from '../shield3/simulate';
+"use client"
+import { type TransactionLike, Transaction, JsonRpcProvider } from 'ethers'
+import { createContext, useContext } from 'react';
+import React from 'react';
+import type { Address } from '../types';
+import { type SimulateResponse, simulate } from '../shield3/simulate';
 import { getNetworkFromChainId } from '../shield3/chainIds';
 
 
