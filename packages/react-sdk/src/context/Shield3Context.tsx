@@ -34,10 +34,12 @@ export const Shield3Provider: React.FC<MyAppContextProps> = ({ children, apiKey,
         const client = new JsonRpcProvider(url, undefined, { staticNetwork: true })
 
         const tx = Transaction.from(transaction)
-
+  
+        if (!from) {throw new Error("From_address is undefined. Verify how this is being passed to this sdk, and make sure a wallet is connected when interacting.")}
+        if (!apiKey) {throw new Error("Shield3 API Key is undefined. Make sure the following is configured properly: \n In nextjs: The variable SHIELD3_API_KEY is defined in your .env.local, and correctly passed to the context provider.\n In react: The variable REACT_APP_SHIELD3_API_KEY is defined in your .env, and correctly passed to the context provider.")}
         return await simulate(client, tx, from)
       } catch (error) {
-        console.error('Error:', error);
+        console.error('@Shield3/react-sdk error:', error);
       }
     },
   };
