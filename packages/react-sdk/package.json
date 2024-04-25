@@ -1,6 +1,6 @@
 {
   "name": "@shield3/react-sdk",
-  "version": "0.0.83",
+  "version": "0.0.84",
   "main": "dist/index.js",
   "devDependencies": {
     "@types/react": "^18.2.79",
