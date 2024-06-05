@@ -44,13 +44,10 @@ export interface SimulateResponse {
 }
 
 export async function simulate(provider: JsonRpcProvider, transaction: Transaction, from: Address): Promise<SimulateResponse> {
-    console.log(`Simulating transaction: ${JSON.stringify(transaction, null, 2)} from : ${from}`)
     const serializedTx = transaction.unsignedSerialized
 
-    console.log(`serializedTx: ${serializedTx}`)
     const params = [serializedTx, from]
 
     const rpcResponse = await provider.send('eth_simulateTransaction', params)
-    console.log(rpcResponse)
     return rpcResponse
 }

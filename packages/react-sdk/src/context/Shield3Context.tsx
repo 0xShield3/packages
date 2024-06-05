@@ -19,19 +19,20 @@ const Shield3Context = createContext<Shield3ContextResult | undefined>(undefined
 
 interface MyAppContextProps {
   apiKey: string;
-  chainId: number;
   children?: React.ReactNode;
 }
 
-export const Shield3Provider: React.FC<MyAppContextProps> = ({ children, apiKey, chainId }) => {
+export {type SimulateResponse}
+
+export const Shield3Provider: React.FC<MyAppContextProps> = ({ children, apiKey}) => {
   let currentApiKey = apiKey
   const shield3Client = {
     getPolicyResults: async (transaction: TransactionLike, from: Address): Promise<SimulateResponse | undefined> => {
-      console.log(`Getting policy results for transaction: ${JSON.stringify(transaction, null, 2)} from : ${from}`)
       try {
         if (!from) {throw new Error("From_address is undefined. Verify how this is being passed to this sdk, and make sure a wallet is connected when interacting.")}
         if (!apiKey) {throw new Error("Shield3 API Key is undefined. Make sure the following is configured properly: \n In nextjs: The variable SHIELD3_API_KEY is defined in your .env.local, and correctly passed to the context provider.\n In react: The variable REACT_APP_SHIELD3_API_KEY is defined in your .env, and correctly passed to the context provider.")}
-        const network = getNetworkFromChainId(chainId)
+        if (!transaction.chainId) {throw new Error("ChainId is undefined")}
+        const network = getNetworkFromChainId(Number(transaction.chainId))
         const url = `https://rpc.shield3.com/v3/${network}/${currentApiKey}/rpc`
 
 
